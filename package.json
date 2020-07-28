@@ -1,0 +1,19 @@
+{
+  "name": "peto",
+  "version": "1.0.0",
+  "description": "Make HTTP and HTTPS Requests in Node.js with or without proxy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devjohneniola/peto.git"
+  },
+  "author": "John Eniola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devjohneniola/peto/issues"
+  },
+  "homepage": "https://github.com/devjohneniola/peto#readme"
+}
