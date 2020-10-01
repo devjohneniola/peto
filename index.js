@@ -7,6 +7,7 @@ const peto = (args) => {
     useHttp = false,
     allowInsecureRequest = false,
     allowRedirect = true,
+    allowCookies = true,
     reds = 0,
     maxRedirs = 5,
   } = args;
@@ -74,15 +75,17 @@ const peto = (args) => {
           resp
             .on("data", (d) => buff.push(d.toString()))
             .on("end", () => {
-              let url;
+              let _url;
               if (
                 allowRedirect &&
                 statusCode >= 300 &&
                 statusCode <= 399 &&
-                (url = headers.location) &&
+                (_url = headers.location) &&
                 reds < maxRedirs
               )
-                return peto({ ...args, reds: reds + 1, url }).then(resolve);
+                return peto({ ...args, reds: reds + 1, url: _url }).then(
+                  resolve
+                );
 
               buff = buff.join("");
               const contentType = headers["content-type"];
@@ -100,6 +103,7 @@ const peto = (args) => {
                 data: buff,
                 complete: res.complete,
                 maxRedirsReached: reds === maxRedirs,
+                url: _url || url,
               });
             })
             .on("error", (err) => reject(err));
