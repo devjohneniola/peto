@@ -1,6 +1,6 @@
 {
   "name": "peto",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make HTTP and HTTPS Requests in Node.js with or without proxy",
   "main": "index.js",
   "scripts": {
