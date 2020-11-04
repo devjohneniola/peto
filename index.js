@@ -4,14 +4,13 @@ const peto = (args) => {
     body,
     headers: hdrs,
     contentType,
-    useHttp = false,
     allowInsecureRequest = false,
     allowRedirect = true,
     allowCookies = true,
     reds = 0,
     maxRedirs = 5,
   } = args;
-  let { method = "GET", proxy } = args;
+  let { method = "GET", proxy, useHttp = false } = args;
 
   const { URL } = require("url");
   const _url = new URL(url);
